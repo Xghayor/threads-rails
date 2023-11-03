@@ -64,6 +64,7 @@ This repository has been established with the purpose of facilitating the learni
 - **Creating Post**
 - **Creating Comments**
 - **Posting Likes**
+- **CRUD**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
