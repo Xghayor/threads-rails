@@ -146,7 +146,7 @@ To run tests, run the following command:
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Oluwatoyin Olaoye**
+👤 **Ghayoor Ul Baqir**
 
 - GitHub: [@Ghayoor](https://github.com/Xghayor)
 
