@@ -7,17 +7,12 @@ default: &default
 
 development:
   <<: *default
-  database: hellorails_development
+  database: threads_development
 
 test:
   <<: *default
-  database: hellorails_test
+  database: threads_test
 
-production:
-  <<: *default
-  database: hellorails_production
-  username: hellorails
-  password: <%= ENV['HELLORAILS_DATABASE_PASSWORD'] %>
 
 
 
