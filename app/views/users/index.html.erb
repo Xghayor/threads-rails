@@ -1,0 +1,16 @@
+<h1>Users</h1>
+<% if @users.any? %>
+  <ul>
+    <% @users.each do |user| %>
+      <li>
+        <% if user.photo.present? %>
+          <img src="<%= user.photo %>" alt="<%= user.name %>">
+        <% end %>
+        <h2><%= user.name %></h2>
+        <p>Number of posts: <%= user.posts.count %></p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No users found.</p>
+<% end %>

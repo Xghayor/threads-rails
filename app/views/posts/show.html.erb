@@ -1,0 +1,12 @@
+<h1>Post by <%= @user.name %></h1>
+<p><strong>Post Number:</strong> <%= @post.id %></p>
+<p><strong>Comments Count:</strong> <%= @comments.count %></p>
+<p><strong>Likes Count:</strong> <%= @likes_count %></p>
+<p><strong>Post Text:</strong> <%= @post.text %></p>
+
+<h2>Comments</h2>
+<ul>
+  <% @comments.each do |comment| %>
+    <li><strong><%= comment.user.name %>:</strong> <%= comment.text %></li>
+  <% end %>
+</ul>
