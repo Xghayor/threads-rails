@@ -64,12 +64,11 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'selenium-webdriver'
   gem 'rails-controller-testing'
+  gem 'selenium-webdriver'
 end
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
   gem 'rspec-rails', '~> 6.0.0'
 end
-

@@ -19,9 +19,3 @@ class Post < ApplicationRecord
     author.increment!(:posts_counter)
   end
 end
-
-
-
-
-
-
