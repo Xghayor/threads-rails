@@ -1,13 +1,11 @@
-<img src="<%= @user.photo %>" alt="<%= @user.name %>">
-<h1><%= @user.name %></h1>
-<p>Number of posts: <%= @user.posts.count %></p>
+<h1>Posts</h1>
 
-<h2>Posts by <%= @user.name %></h2>
 <ul>
-  <% @user.posts.each do |post| %>
+  <% @posts.each do |post| %>
     <li>
-      <strong>Title:</strong> <%= post.title %><br>
-      <strong>Body:</strong> <%= post.body %>
+      <%= link_to post.title, user_post_path(@user, post) %>
     </li>
   <% end %>
 </ul>
+
+<%= link_to 'Back', user_path(@user) %>
