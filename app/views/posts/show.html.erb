@@ -1,7 +1,38 @@
-<h1><%= @post.title %></h1>
+<%= stylesheet_link_tag 'posts_show' %>
 
-<p><strong>Comments: <%= @post.comments_counter %></strong></p>
-<p><strong>Likes: <%= @post.likes_counter %></strong></p>
+<div class="post-container">
+  <h1>
+    <% post_count = @user.posts.count %>
+    <% if post_count.zero? %>
+      No Posts
+    <% elsif post_count == 1 %>
+      Post #1
+    <% else %>
+      <%= "Post ##{post_count}" %>
+    <% end %>
+    by <%= @user.name %>
+  </h1>
 
-<%= link_to 'Back', user_posts_path(@user) %>
+  <div class="comments-likes">
+    <p><strong>Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></strong></p>
+  </div>
 
+ 
+</div>
+
+<p class="post-text"><%= @post.text %></p>
+
+
+
+
+<div class="user-comments-container">
+  <ul>
+    <% @post.comments.each do |comment| %>
+      <li>
+        <strong><%= comment.author.name %>:</strong> <%= comment.text %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<%= link_to 'Back', user_posts_path(@user), class: 'back-link' %>

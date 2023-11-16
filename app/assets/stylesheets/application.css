@@ -1,15 +1,71 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+/* app/assets/stylesheets/application.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 0;
+}
+
+/* Add styles for links */
+a {
+  color: #06c;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Style for headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #333;
+  margin-top: 0;
+}
+
+/* Style for paragraphs */
+p {
+  margin-bottom: 15px;
+}
+
+/* Style for lists */
+ul,
+ol {
+  margin-bottom: 15px;
+}
+
+/* Style for list items */
+li {
+  margin-bottom: 5px;
+}
+
+/* Style for blockquotes */
+blockquote {
+  margin: 0;
+  padding: 10px;
+  background-color: #eee;
+  border-left: 4px solid #ccc;
+}
+
+/* Style for code blocks */
+pre {
+  margin: 0;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  overflow-x: auto;
+}
+
+/* Style for horizontal rules */
+hr {
+  margin: 20px 0;
+  border: 1px solid #ccc;
+}

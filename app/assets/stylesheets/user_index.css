@@ -1,0 +1,40 @@
+.user-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5% 10%;
+}
+
+.user-item {
+  flex: 0 0 100%;
+  margin: 5px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
+.user-image-container {
+  flex: 0 0 100px;
+  overflow: hidden;
+  border: 1px solid black;
+  margin-right: 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.user-details-container {
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+
+.post-count {
+  margin-top: 0;
+  align-self: flex-end;
+}
