@@ -29,16 +29,16 @@
   </h2>
 
   <ul>
-    <% @user.posts.each do |post| %>
-      <li>
-        <%= post.text %>
-        <p class="post-metadata">
-          <span class="comments-count">Comments: <%= post.comments.count %></span>
-          <span class="likes-count">Likes: <%= post.likes.count %></span>
-        </p>
-      </li>
-    <% end %>
-  </ul>
+  <% @user.most_recent_posts.each do |post| %>
+    <li>
+    <h5><%= "#{post.title} #{post.text}" %></h5>
+      <p class="post-metadata">
+        <span class="comments-count">Comments: <%= post.comments.count %></span>
+        <span class="likes-count">Likes: <%= post.likes.count %></span>
+      </p>
+    </li>
+  <% end %>
+</ul>
 </div>
 
 <div class="bottom-button">

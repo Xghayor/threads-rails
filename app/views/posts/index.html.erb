@@ -14,35 +14,29 @@
 
 <div class="user-posts-container">
 <ul>
+  <% @user.posts.each do |post| %>
+    <li>
+      <h2>
+        <%= link_to post.title, user_post_path(@user, post) %>
+      </h2>
 
-<% @user.posts.each do |post| %>
-  <li>
-  <h2>
-  <% post_count = @user.posts.count %>
-  <% if post_count.zero? %>
-    No Posts
-  <% else %>
-    <% @user.posts.each_with_index do |post, index| %>
-      <%= link_to "Post ##{index + 1}", user_post_path(@user, post) %><% if index < post_count - 1 %>, <% end %>
-    <% end %>
+      <%= "#{post.text}" %>
+      <p class="post-metadata">
+        <span class="comments-count">Comments: <%= post.comments.count %></span>
+        <span class="likes-count">Likes: <%= post.likes.count %></span>
+      </p>
+
+      <ul class="comments-list">
+        <% post.most_recent_comments.each do |comment| %>
+          <li>
+            <strong><%= comment.author.name %>:</strong> <%= comment.text %>
+          </li>
+        <% end %>
+      </ul>
+    </li>
   <% end %>
-</h2>
-
-    <%= "#{post.text}" %>
-    <p class="post-metadata">
-      <span class="comments-count">Comments: <%= post.comments.count %></span>
-      <span class="likes-count">Likes: <%= post.likes.count %></span>
-    </p>
-  </li>
-  <ul class="comments-list">
-      <% post.comments.each do |comment| %>
-        <li>
-          <strong><%= comment.author.name %>:</strong> <%= comment.text %>
-        </li>
-      <% end %>
-    </ul>
-<% end %>
 </ul>
+
 </div>
 
 <div class="last-btn">
