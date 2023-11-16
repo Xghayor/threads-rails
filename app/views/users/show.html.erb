@@ -17,16 +17,9 @@
 </div>
 
 <div class="user-posts-container">
-  <h2>
-    <% post_count = @user.posts.count %>
-    <% if post_count.zero? %>
-      No Posts
-    <% elsif post_count == 1 %>
-      Post #1
-    <% else %>
-      <%= "Post ##{post_count}" %>
-    <% end %>
-  </h2>
+<h2>
+  <%= "Post # #{@user.posts_counter}" %>
+</h2>
 
   <ul>
   <% @user.most_recent_posts.each do |post| %>
