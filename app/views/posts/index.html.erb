@@ -1,11 +1,44 @@
-<h1>Posts</h1>
+<%= stylesheet_link_tag 'posts_index' %>
 
+<div class="user-show-container">
+  <div class="user-image-container">
+    <img src="<%= @user.photo %>" alt="<%= @user.name %>">
+  </div>
+
+  <div class="user-details-container">
+    <h1><%= @user.name %></h1>
+    <p class="post-count">Number of posts: <%= @user.posts.count %></p>
+  </div>
+</div>
+
+
+<div class="user-posts-container">
 <ul>
-  <% @posts.each do |post| %>
+  <% @user.posts.each do |post| %>
     <li>
-      <%= link_to post.title, user_post_path(@user, post) %>
+      <h2>
+        <%= link_to post.title, user_post_path(@user, post) %>
+      </h2>
+
+      <%= "#{post.text}" %>
+      <p class="post-metadata">
+        <span class="comments-count">Comments: <%= post.comments.count %></span>
+        <span class="likes-count">Likes: <%= post.likes.count %></span>
+      </p>
+
+      <ul class="comments-list">
+        <% post.most_recent_comments.each do |comment| %>
+          <li>
+            <strong><%= comment.author.name %>:</strong> <%= comment.text %>
+          </li>
+        <% end %>
+      </ul>
     </li>
   <% end %>
 </ul>
 
-<%= link_to 'Back', user_path(@user) %>
+</div>
+
+<div class="last-btn">
+<button class="back-link">Pagination</button>
+</div>

@@ -1,12 +1,40 @@
-<h1><%= @user.name %></h1>
-<img src="<%= @user.photo %>" alt="<%= @user.name %>">
-<p><%= @user.bio %></p>
+<%= stylesheet_link_tag 'user_show' %>
 
-<h2>Posts by <%= @user.name %></h2>
-<ul>
-  <% @user.posts.each do |post| %>
+<div class="user-show-container">
+  <div class="user-image-container">
+    <img src="<%= @user.photo %>" alt="<%= @user.name %>">
+  </div>
+
+  <div class="user-details-container">
+    <h1><%= @user.name %></h1>
+    <p class="post-count">Number of posts: <%= @user.posts.count %></p>
+  </div>
+</div>
+
+<div class="user-bio-container">
+  <h2 class="h2-bio">Bio</h2>
+  <p><%= @user.bio %></p>
+</div>
+
+<div class="user-posts-container">
+<h2>
+  <%= "Post # #{@user.posts_counter}" %>
+</h2>
+
+  <ul>
+  <% @user.most_recent_posts.each do |post| %>
     <li>
-      <%= link_to "#{post.title} #{post.text}", user_post_path(@user, post) %>
+    <h5><%= "#{post.title} #{post.text}" %></h5>
+      <p class="post-metadata">
+        <span class="comments-count">Comments: <%= post.comments.count %></span>
+        <span class="likes-count">Likes: <%= post.likes.count %></span>
+      </p>
     </li>
   <% end %>
 </ul>
+</div>
+
+<div class="bottom-button">
+  <%= button_to 'See All Posts', user_posts_path(@user), method: :get, class: 'last-btn' %>
+</div>
+
