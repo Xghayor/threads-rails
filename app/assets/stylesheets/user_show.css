@@ -97,3 +97,9 @@ li {
 .h2-bio {
   padding: 10px;
 }
+
+
+.posts-container{
+  border: 1px solid black;
+  padding: 10px;
+}

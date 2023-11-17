@@ -17,21 +17,21 @@
 </div>
 
 <div class="user-posts-container">
-<h2>
-  <%= "Post # #{@user.posts_counter}" %>
-</h2>
+  <h2>Recent Posts</h2>
 
   <ul>
-  <% @user.most_recent_posts.each do |post| %>
-    <li>
-    <h5><%= "#{post.title} #{post.text}" %></h5>
-      <p class="post-metadata">
-        <span class="comments-count">Comments: <%= post.comments.count %></span>
-        <span class="likes-count">Likes: <%= post.likes.count %></span>
-      </p>
-    </li>
-  <% end %>
-</ul>
+    <% @user.most_recent_posts.each do |post| %>
+      <li class="posts-container">
+        <h3><%= "Post ##{post.id}" %></h3>
+        <h5><%= post.title %></h5>
+        <p class="post-text"><%= post.text %></p>
+        <p class="post-metadata">
+          <span class="comments-count">Comments: <%= post.comments.count %></span>
+          <span class="likes-count">Likes: <%= post.likes.count %></span>
+        </p>
+      </li>
+    <% end %>
+  </ul>
 </div>
 
 <div class="bottom-button">
