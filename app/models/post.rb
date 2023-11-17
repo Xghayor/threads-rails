@@ -16,7 +16,6 @@ class Post < ApplicationRecord
 
   private
 
-
   def set_default_values
     self.comments_counter ||= 0
     self.likes_counter ||= 0
