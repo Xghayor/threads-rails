@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  before_create :set_default_values
   belongs_to :author, class_name: 'User'
   has_many :comments
   has_many :likes
@@ -14,6 +15,11 @@ class Post < ApplicationRecord
   end
 
   private
+
+  def set_default_values
+    self.comments_counter ||= 0
+    self.likes_counter ||= 0
+  end
 
   def update_user_post_counter
     author.increment!(:posts_counter)
