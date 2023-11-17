@@ -15,7 +15,7 @@ class PostsController < ApplicationController
 
   def create
     comment_count = 0
-    likes_count = 0    
+    likes_count = 0
 
     @post = current_user.posts.build(post_params)
     @post.comments_counter = comment_count
@@ -35,7 +35,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :text )
+    params.require(:post).permit(:title, :text)
   end
-  
 end
