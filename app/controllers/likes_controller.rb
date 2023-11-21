@@ -1,8 +1,7 @@
 class LikesController < ApplicationController
-  def create
-    @user = User.find(params[:user_id])
-    @post = Post.find(params[:post_id])
+  before_action :set_user_and_post, only: [:create]
 
+  def create
     if @post.likes.exists?(user: @user)
       redirect_to user_posts_path(@user), alert: 'You have already liked this post.'
     else
@@ -14,5 +13,12 @@ class LikesController < ApplicationController
         redirect_to user_posts_path(@user), alert: 'Error liking the post.'
       end
     end
+  end
+
+  private
+
+  def set_user_and_post
+    @user = current_user
+    @post = Post.find(params[:post_id])
   end
 end
