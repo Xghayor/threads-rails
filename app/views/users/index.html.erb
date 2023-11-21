@@ -2,7 +2,7 @@
 
 <% if @users.any? %>
   <div class="user-list">
-    <% @users.each do |user| %>
+    <% @users.includes(:posts).each do |user| %>
       <div class="user-item">
         <div class="user-image-container">
           <% if user.photo.present? %>

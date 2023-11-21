@@ -20,7 +20,7 @@
   <h2>Recent Posts</h2>
 
   <ul>
-    <% @user.most_recent_posts.each do |post| %>
+    <% @user.most_recent_posts.includes(:comments, :likes).each do |post| %>
       <li class="posts-container">
         <h3><%= "Post ##{post.id}" %></h3>
         <h5><%= post.title %></h5>
@@ -37,4 +37,3 @@
 <div class="bottom-button">
   <%= button_to 'See All Posts', user_posts_path(@user), method: :get, class: 'last-btn' %>
 </div>
-

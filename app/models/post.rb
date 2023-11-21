@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   before_create :set_default_values
-  belongs_to :author, class_name: 'User'
+  belongs_to :author, class_name: 'User', counter_cache: true
   has_many :comments
   has_many :likes
 
